@@ -10,6 +10,7 @@
 */
 #include <iostream>
 
+template <class T>
 class Stack{
 
 public:
@@ -23,34 +24,43 @@ public:
     ~Stack();
 };
 
+template <class T>
 Stack::Stack(){
 }
 
+template <class T>
 void Stack::push(int num){
 }
 
+template <class T>
 int Stack::pop(){
     return 0;
 }
 
+template <class T>
 int Stack::peek(){
     return 0;
 }
 
+template <class T>
 bool Stack::isFull(){
     return false;
 }
 
+template <class T>
 bool Stack::isEmpty(){
     return false;
 }
 
+template <class T>
 void Stack::resize(){
 }
 
+template <class T>
 void Stack::clear(){
 }
 
+template <class T>
 int main(){
     return 0;
 }
