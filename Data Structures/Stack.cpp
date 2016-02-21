@@ -1,66 +1,60 @@
 /*
-    My implementation of a stack data structure.
-    List of need functions:
-        push();
-        pop();
-        peek();
-        isFull();
-        isEmpty();
-        clear();
+    My implementation of a stack data structure using a linked list.
+    Code by Alan Pham
 */
+
 #include <iostream>
 
 template <class T>
 class Stack{
-
+    struct Node{
+        T data;
+        Node *next;
+    };
+    size_t size;
+    Node *head;
+    T *data;
 public:
     Stack();
-    void push(int);
-    int pop();
-    int peek();
-    bool isFull();
+    void push(T);
+    T& pop();
+    T& peek();
     bool isEmpty();
-    void resize();
-    ~Stack();
+    void clear();
 };
 
-template <class T>
-Stack::Stack(){
+template <class T> Stack<T>::Stack() : size(0), head(NULL), data(new T()){
 }
 
-template <class T>
-void Stack::push(int num){
+template <class T> void Stack<T>::push(T data){
+    size++;
+    head->data = data;
+    head->next = NULL;
 }
 
-template <class T>
-int Stack::pop(){
-    return 0;
+template <class T> T & Stack<T>::pop(){
+    T a;
+    if (size == 0){
+        return -1;
+    }
+    return a;
 }
 
-template <class T>
-int Stack::peek(){
-    return 0;
+template <class T> T & Stack<T>::peek(){
+    if (size == 0)
+        return -1;
+    return head->data;
 }
 
-template <class T>
-bool Stack::isFull(){
-    return false;
+template <class T> bool Stack<T>::isEmpty(){
+    return size == 0;
 }
 
-template <class T>
-bool Stack::isEmpty(){
-    return false;
+template <class T> void Stack<T>::clear(){
 }
 
-template <class T>
-void Stack::resize(){
-}
-
-template <class T>
-void Stack::clear(){
-}
-
-template <class T>
 int main(){
+    Stack<double> stk;
+    stk.push(12.0);
     return 0;
 }
