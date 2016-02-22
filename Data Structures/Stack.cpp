@@ -4,9 +4,10 @@
 */
 
 #include <iostream>
+#include <stdexcept>
 
 template <class T>
-class StackLL{
+class Stack{
     struct Node{
         T data;
         Node *next;
@@ -15,7 +16,7 @@ class StackLL{
     Node *head;
     T *data;
 public:
-    StackLL();
+    Stack();
     void push(T);
     T& pop();
     T& peek();
@@ -23,10 +24,10 @@ public:
     void clear();
 };
 
-template <class T> StackLL<T>::StackLL() : size(0), head(NULL), data(new T()){
+template <class T> Stack<T>::Stack() : size(0), head(NULL), data(new T()){
 }
 
-template <class T> void StackLL<T>::push(T data){
+template <class T> void Stack<T>::push(T data){
     Node * newHead = new Node;
     if (head == NULL){
         newHead->data = data;
@@ -41,13 +42,17 @@ template <class T> void StackLL<T>::push(T data){
     head = newHead;
 }
 
-template <class T> T & StackLL<T>::pop(){
+template <class T> T & Stack<T>::pop(){
     Node * newHead = new Node;
     Node * temp = new Node;
     temp = head;
 
-    if (head->next == NULL){
-        /*return -1;*/
+    if (isEmpty()){
+        throw std::invalid_argument("EMPTY STACK");
+    }
+    else if(size==1){
+        size--;
+        return temp->data;
     }
     else{
         newHead->data = head->next->data;
@@ -56,49 +61,40 @@ template <class T> T & StackLL<T>::pop(){
 
     size--;
     head = newHead;
-
-    return temp->data;
-}
-
-template <class T> T & StackLL<T>::peek(){
+    delete temp;
     return head->data;
 }
 
-template <class T> bool StackLL<T>::isEmpty(){
+template <class T> T & Stack<T>::peek(){
+    return head->data;
+}
+
+template <class T> bool Stack<T>::isEmpty(){
     return size == 0;
 }
 
-template <class T> void StackLL<T>::clear(){
+template <class T> void Stack<T>::clear(){
 }
 
 int main(){
-    StackLL<double> stk;
-    stk.push(12);
-    stk.push(13);
-    stk.push(14);
-    std::cout << "STACK 1" << std::endl;
-    double temp = stk.pop();
-    std::cout << temp << std::endl;
-    temp = stk.pop();
-    std::cout << temp << std::endl;
-    std::cout << stk.peek() << std::endl;
-    std::cout << stk.peek() << std::endl;
-    std::cout << stk.peek() << std::endl;
-    std::cout << stk.pop() << std::endl;    
-
-    StackLL<int> stk2;
-    stk2.push(1);
-    stk2.push(2);
-    stk2.push(3);
-    std::cout << "STACK 2" << std::endl;
-    double temp2 = stk2.pop();
-    std::cout << temp2 << std::endl;
-    temp2 = stk2.pop();
-    std::cout << temp2 << std::endl;
-    std::cout << stk2.peek() << std::endl;
-    std::cout << stk2.peek() << std::endl;
-    std::cout << stk2.peek() << std::endl;
-    std::cout << stk2.pop() << std::endl;
+    try{
+        Stack<double> stk;
+        stk.push(12);
+        stk.push(13);
+        stk.push(14);
+        std::cout << "STACK 1" << std::endl;
+        double temp = stk.pop();
+        std::cout << "pop " << temp << std::endl;
+        temp = stk.pop();
+        std::cout << "pop " << temp << std::endl;
+        std::cout << "peek " << stk.peek() << std::endl;
+        std::cout << "peek " << stk.peek() << std::endl;
+        std::cout << "peek " << stk.peek() << std::endl;
+        std::cout << "pop " << stk.pop() << std::endl;    
+    }
+    catch (const std::invalid_argument& e){
+        throw e;
+    }
 
     return 0;
 }
