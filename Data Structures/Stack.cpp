@@ -51,7 +51,7 @@ template <class T> T & Stack<T>::pop(){
     }
     else if(size==1){
         size--;
-        return temp->data;
+        return head->data;
     }
     else{
         newHead->data = head->next->data;
