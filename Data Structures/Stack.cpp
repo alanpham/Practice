@@ -21,7 +21,6 @@ public:
     T& pop();
     T& peek();
     bool isEmpty();
-    void clear();
 };
 
 template <class T> Stack<T>::Stack() : size(0), head(NULL), data(new T()){
@@ -71,9 +70,6 @@ template <class T> T & Stack<T>::peek(){
 
 template <class T> bool Stack<T>::isEmpty(){
     return size == 0;
-}
-
-template <class T> void Stack<T>::clear(){
 }
 
 int main(){
