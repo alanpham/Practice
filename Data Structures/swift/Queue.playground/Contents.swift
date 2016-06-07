@@ -15,8 +15,10 @@ public class Queue<T>{
     private var first: QueueNode<T>?
     private var last: QueueNode<T>?
     
+    private var size: size_t
+    
     public init(){
-        
+        size = 0
     }
     
     public func push(data: T){
@@ -36,4 +38,7 @@ public class Queue<T>{
     }
     
     
+    public func getSize() -> size_t{
+        return 0
+    }
 }
