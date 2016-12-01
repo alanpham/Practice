@@ -26,9 +26,15 @@ public:
     bool isEmpty();
 };
 
+//Constructor.
 template <class T> Stack<T>::Stack() : size(0), head(NULL){
 }
 
+/*
+    Adds node to the top of the stack.
+
+    @param data data for the new node.
+ */
 template <class T> void Stack<T>::push(T data){
     Node * newHead = new Node;
 
@@ -45,6 +51,11 @@ template <class T> void Stack<T>::push(T data){
     head = newHead;
 }
 
+/*
+    Pops the top of the stack.
+
+    @return the last node in the stack.
+ */
 template <class T> T & Stack<T>::pop(){
     Node * newHead = new Node;
     Node * temp = new Node;
@@ -64,10 +75,20 @@ template <class T> T & Stack<T>::pop(){
     return temp->data;
 }
 
+/* 
+    Checks the head (first element) of the stack.
+
+    @return the head of the stack.
+ */
 template <class T> T & Stack<T>::peek(){
     return head->data;
 }
 
+/*
+    Checks if the stack is empty.
+
+    @return true if size is 0.
+ */
 template <class T> bool Stack<T>::isEmpty(){
     return size == 0;
 }
