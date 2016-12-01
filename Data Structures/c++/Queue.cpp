@@ -1,3 +1,12 @@
+/*
+    Creates a Queue so that I can practice my C++.
+    
+	Practice: queue.cpp
+
+	@author Alan Pham
+	@version 1.0
+*/
+
 #include <iostream>
 
 template <class T> class Queue{

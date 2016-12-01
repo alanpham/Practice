@@ -1,6 +1,10 @@
 /*
     My implementation of a stack data structure using a linked list.
-    Code by Alan Pham
+
+    stack.cpp
+    
+    @author Alan Pham
+    @version 1.0
 */
 
 #include <iostream>
