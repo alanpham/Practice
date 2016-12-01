@@ -5,7 +5,7 @@
 
 	@author Alan Pham
 	@version 1.0
-*/
+ */
 
 #include <iostream>
 
@@ -27,9 +27,15 @@ public:
     size_t getSize();
 };
 
+// Constructor
 template <class T> Queue<T>::Queue() : size(0), head(NULL), tail(NULL){    
 }
 
+/*
+    Adds new node to the queue.
+
+    @param data the data added to the queue.
+ */
 template <class T> void Queue<T>::push (T data){
     node * newNode = new node;
 
@@ -47,6 +53,11 @@ template <class T> void Queue<T>::push (T data){
         size++;
 }
 
+/*
+    Returns the first node in the queue.
+
+    @return The first node in the queue.
+ */
 template <class T> T& Queue<T>::pop(){
 
     node * temp = new node;
@@ -65,22 +76,43 @@ template <class T> T& Queue<T>::pop(){
     return temp->data;
 }
 
+/*
+    Returns the front of the queue.
+
+    @return the first node in the queue.
+ */ 
 template <class T> T& Queue<T>::front(){
     return head->data;
 }
 
+/*
+    Returns the last node in the queue.
+
+    @return the last element in the queue.
+ */
 template <class T> T& Queue<T>::back(){
     return tail->data;
 }
 
+/*
+    Checks if the queue is empty.
+
+    @return true if the size of queue is 0.
+ */
 template <class T> bool Queue<T>::isEmpty(){
     return size == 0;
 }
 
+/*
+    Checks the size of the queue.
+
+    @return the size of the queue.
+ */
 template <class T> size_t Queue<T>::getSize(){
     return size;
 }
 
+//Controls the operation of the program.
 int main(){
     Queue<double> q;
     q.push(1);
