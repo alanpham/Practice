@@ -4,7 +4,7 @@
  Sorts an array.
  
  - returns: Sorted array of type Int.
- - parameter array: An unsorted array that is to be sorted.
+ - parameter array: An unsorted array of type Int that is to be sorted.
  */
 func selectionSort(_ array: [Int]) -> [Int] {
   var temp = array

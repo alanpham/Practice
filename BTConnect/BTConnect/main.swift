@@ -16,7 +16,7 @@ else if (CommandLine.argc == 2){
   
   let MACAddress = CommandLine.arguments[1]
   
-  var bluetoothDevice = BTConnect(deviceAddress: MACAddress)
+  let bluetoothDevice = BTConnect(deviceAddress: MACAddress)
   
   bluetoothDevice.connect()
 }
