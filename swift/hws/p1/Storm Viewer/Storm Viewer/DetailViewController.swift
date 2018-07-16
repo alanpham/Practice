@@ -16,7 +16,7 @@ class DetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     title = selectedImage
     
     navigationItem.largeTitleDisplayMode = .never
@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
       imageView.image = UIImage(named: imageToLoad)
     }
   }
-
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.hidesBarsOnTap = true
@@ -39,9 +39,9 @@ class DetailViewController: UIViewController {
   override func prefersHomeIndicatorAutoHidden() -> Bool {
     return navigationController?.hidesBarsOnTap ?? false
   }
-
+  
   override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
   }
 }
